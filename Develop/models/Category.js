@@ -1,8 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-
+// extends the Sequelize Model class
 class Category extends Model {}
 
+// Initialize the Category model with the defined columns and rules
 Category.init(
   {
     id: {
@@ -12,6 +13,7 @@ Category.init(
       allowNull: false,
     },
     name: {
+      // Define the 'name' column as a STRING, disallow null values (required field).
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -19,6 +21,7 @@ Category.init(
   {
     sequelize,
     timestamps: false,
+    // Specify that the table name should match the model name in lowercase
     freezeTableName: true,
     underscored: true,
     modelName: 'category',
